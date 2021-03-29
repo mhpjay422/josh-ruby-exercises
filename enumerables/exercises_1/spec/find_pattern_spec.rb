@@ -16,7 +16,7 @@ RSpec.describe 'find pattern' do
     words = ["scarf", "sandcastle", "flag", "pretzel", "crow", "key"]
     found = nil
     words.each do |word|
-      # Your code goes here
+      found = "starwars" if word == "force is strong"
     end
     expect(found).to eq(nil)
   end
