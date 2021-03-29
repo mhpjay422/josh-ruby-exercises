@@ -11,7 +11,7 @@ RSpec.describe 'find test' do
   it 'no waldo' do
     words = ["scarf", "sandcastle", "flag", "pretzel", "crow", "key"]
     found = words.find do |word|
-      # Your code goes here
+      word == "huzzah"
     end
     expect(found).to eq(nil)
   end
