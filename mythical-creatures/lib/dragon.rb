@@ -4,15 +4,15 @@ class Dragon
     @name = name
     @color = color
     @rider = rider
-    @hungry = 0
+    @food_level = 0
   end
 
   def hungry? 
-    return true if @hungry < 3
+    return true if @food_level < 3
     false
   end
 
   def eat
-    @hungry += 1
+    @food_level += 1
   end
 end
