@@ -104,17 +104,18 @@ class NestedTest < MiniTest::Test
 
   def test_full_menu_price_for_olive_garden
     #=======================
-    full_menu_price = stores[:olive_garden][:dishes].map{|dish|dish[:price]}.reduce(:+)
+    full_menu_price = stores[:olive_garden][:dishes].reduce(0) do |results, data| 
+      results + data[:price]
+    end
     #=======================
     assert_equal 27, full_menu_price
   end
 
   def test_full_menu_for_olive_garden
     #=======================
-    olive_garden_menu = {}
-    stores[:olive_garden][:dishes].each do |dish|
-      key = dish[:name]
-      olive_garden_menu[key] = dish
+    olive_garden_menu = stores[:olive_garden][:dishes].reduce({}) do |results, dish|
+      # when using reduce, you must return results at each iteration
+      results.merge!(dish[:name] => dish)
     end
     #=======================
     expected = ({"Risotto"=>{:name=>"Risotto", :ingredients=>["Rice", "Cheese", "Butter"], :price=>12},
@@ -124,12 +125,13 @@ class NestedTest < MiniTest::Test
 
   def test_menu_accross_all_restaurants
     #=======================
-     full_menu = {}
-     stores.each do |store|
-      store[1][:dishes].each do |dish|
+     #double reduce! double merge!
+     full_menu = stores.reduce({}) do |menu, store|
+      full_list = store[1][:dishes].reduce({}) do |list, dish|
         # require "pry"; binding.pry
-        full_menu[dish[:name]] = dish
+        list.merge!(dish[:name] => dish)
       end
+      menu.merge!(full_list)
      end
     #=======================
     expected = ({"Risotto"=>
