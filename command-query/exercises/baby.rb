@@ -11,5 +11,4 @@ class Baby
   def nap
     @tired = false
   end
-  
 end
