@@ -25,4 +25,14 @@ class Hobbit
   def is_short?(person)
     return true if person.class == Hobbit
   end
+  
+  def helloworld 
+    
+  end
+
+  def test2
+    
+  end
+  
+  
 end
