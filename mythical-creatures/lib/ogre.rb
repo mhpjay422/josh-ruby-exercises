@@ -48,11 +48,7 @@ class Human
   end
 
   def notices_ogre?
-    if @counter % 3 == 0
-      return true
-    else 
-      return false
-    end
+    @counter % 3 == 0 ? true : false
   end
 
   def knock_out
