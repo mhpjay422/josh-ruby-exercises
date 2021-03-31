@@ -24,7 +24,7 @@ class Wallet
     coin_pocket.push(coin)
   end
 
-  def take(*coin)
-    coin.each { |c| coin_pocket.delete_at(coin_pocket.index(c) || coin_pocket.length)}
+  def take(*coins)
+    coins.each { |coin| coin_pocket.delete_at(coin_pocket.index(coin) || coin_pocket.length)}
   end
 end
