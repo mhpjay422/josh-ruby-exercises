@@ -6,7 +6,7 @@ class Medusa
   end
 
   def stare(person)
-    @statues.push(person) 
+    @statues << person 
     person.freeze
     unfreeze_if_necessary
   end
