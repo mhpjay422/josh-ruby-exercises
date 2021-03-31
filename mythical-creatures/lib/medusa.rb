@@ -1,28 +1,8 @@
-class Person 
-  attr_reader :name, :frozen
-  def initialize(name, frozen=false)
-    @name = name
-    @frozen = frozen
-  end
-
-  def stoned?
-    frozen
-  end
-
-  def freeze
-    @frozen = true
-  end
-
-  def unfreeze
-    @frozen = false
-  end
-end
-
 class Medusa
   attr_reader :name, :statues
-  def initialize(name="Cassiopeia", statues=[])
+  def initialize(name="Cassiopeia")
     @name = name
-    @statues = statues
+    @statues = []
   end
 
   def stare(person)
@@ -36,6 +16,24 @@ class Medusa
     freed_person = @statues.shift
     freed_person.unfreeze
   end
-  
+end
 
+class Person 
+  attr_reader :name, :frozen
+  def initialize(name)
+    @name = name
+    @frozen = false
+  end
+
+  def stoned?
+    frozen
+  end
+
+  def freeze
+    @frozen = true
+  end
+
+  def unfreeze
+    @frozen = false
+  end
 end
