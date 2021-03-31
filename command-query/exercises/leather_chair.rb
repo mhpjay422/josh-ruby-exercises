@@ -5,7 +5,7 @@ class LeatherChair
   end
 
   def faded?
-    @faded
+    @faded == true
   end
   
   def expose_to_sunlight

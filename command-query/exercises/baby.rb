@@ -5,7 +5,7 @@ class Baby
   end
 
   def tired?
-    @tired
+    @tired == true
   end
 
   def nap
