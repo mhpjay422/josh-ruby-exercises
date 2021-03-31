@@ -6,7 +6,7 @@ class Person
   end
 
   def stoned?
-    @frozen
+    frozen
   end
 
   def freeze
@@ -26,15 +26,15 @@ class Medusa
   end
 
   def stare(person)
-    if statues.length < 3
-      @statues.push(person) 
-    else 
-      # require "pry";binding.pry
-      freed_person = @statues.shift
-      @statues.push(person)
-      freed_person.unfreeze
-    end
+    @statues.push(person) 
     person.freeze
+    unfreeze_if_necessary
+  end
+
+  def unfreeze_if_necessary
+    return "nobody to unfreeze" if @statues.length < 4
+    freed_person = @statues.shift
+    freed_person.unfreeze
   end
   
 
