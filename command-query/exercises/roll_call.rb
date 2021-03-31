@@ -6,7 +6,7 @@ class RollCall
 
   def longest_name
     return nil if list == []
-    list.reduce([]){|long, name| long.length > name.length ? long : name}
+    list.reduce([]){|longest, name| longest.length > name.length ? longest : name}
   end
 
   def <<(name)
