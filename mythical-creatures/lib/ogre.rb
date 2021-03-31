@@ -1,10 +1,10 @@
 class Ogre
   attr_reader :name, :home, :swing, :encounter
-  def initialize(name="Brak", home="Swamp", swing=0, encounter=0)
+  def initialize(name, home="Swamp")
     @name = name
     @home = home
-    @swing = swing
-    @encounter = encounter
+    @swing = 0
+    @encounter = 0
   end
 
   def encounter(person)
@@ -32,23 +32,23 @@ class Ogre
 end
 
 class Human 
-  attr_reader :name, :counter, :status
-  def initialize(name="Jane", counter=0, status="ok")
+  attr_reader :name, :counter_for_encounter, :status
+  def initialize(name="Jane")
     @name = name
-    @counter = counter
-    @status = status
+    @counter_for_encounter = 0
+    @status = "ok"
   end
 
   def encounter
-    @counter += 1
+    @counter_for_encounter += 1
   end
 
   def encounter_counter
-    @counter
+    @counter_for_encounter
   end
 
   def notices_ogre?
-    @counter % 3 == 0 ? true : false
+    @counter_for_encounter % 3 == 0 ? true : false
   end
 
   def knock_out
