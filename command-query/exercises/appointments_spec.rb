@@ -13,7 +13,6 @@ RSpec.describe Appointments do
     t1 = Time.new(2014, 3, 14, 4, 30)
 
     slots.at(t1)
-
     expect(slots.earliest).to eq(t1)
   end
 
@@ -25,7 +24,6 @@ RSpec.describe Appointments do
     slots.at t1
     slots.at t2
     slots.at t3
-
     expect(slots.earliest).to eq(t2)
   end
 end
