@@ -13,6 +13,5 @@ class Catalog
   def <<(item)
     @items.push(item)
   end
-
 end
 
